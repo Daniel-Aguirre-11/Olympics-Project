@@ -70,3 +70,25 @@ WHERE Sex = 'M' AND Medal IN ('Gold','Silver','Bronze');
 SELECT AVG(CAST(Age AS INT)) as Average_Female_Age
 FROM olympics_2020_data
 WHERE Sex = 'F';
+
+SELECT AVG(CAST(Age AS INT)) as Average_Male_Age
+FROM olympics_2020_data
+WHERE Sex = 'M';
+
+--Who is the youngest/oldest athletes?--
+
+SELECT *
+FROM olympics_2020_data
+WHERE Age IN 
+(
+	SELECT MIN(Age)
+	FROM olympics_2020_data
+);
+
+SELECT *
+FROM olympics_2020_data
+WHERE Age IN 
+(
+	SELECT MAX(Age)
+	FROM olympics_2020_data
+);
